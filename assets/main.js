@@ -18,3 +18,8 @@ var Rata = new MiembroSquad("Chinchilla Psico", 24, ["Dibujar","leer","aprender"
 squad.push(Rata);
 var Nico = new MiembroSquad("Nicole Aliste", 32, ["Juegos de video","Cosas Kawai","Alicia"]);
 squad.push(Nico);
+
+var impresion = document.getElementById('imprimir');
+squad.forEach(function(el){
+	impresion.innerHTML += "<div>"+ "<b>Nombre: </b>"+el.nombre +"<br>" + "<b>Edad: </b>"+el.edad+"<br><br>"+"</div>";
+});
