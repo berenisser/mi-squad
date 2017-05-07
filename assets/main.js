@@ -1,10 +1,11 @@
 var squad = [];
 var comments = [];
 
-function MiembroSquad(nombre, edad, hobbies){
+function MiembroSquad(nombre, edad, hobbies){ //id de cada una sera su index
 	this.nombre = nombre;
 	this.edad = edad;
 	this.hobbies = hobbies;
+	this.idMiembro = squad.length;
 }
 
 function Comentario(idMiembro,comentario,likes){
@@ -26,7 +27,6 @@ function main(){
 	squad.push(rata);
 	var nico = new MiembroSquad("Nicole Aliste", 32, ["Juegos de video","Cosas Kawai","Alicia"]);
 	squad.push(nico);
-
 llenarDiv();
 }
 
@@ -42,34 +42,23 @@ var listAux = document.createElement("li");
 listAux.innerHTML = el.hobbies.forEach(function(e){
 		divAux.innerHTML += "<li>"+e+"</li>";
 	});
+var cajitaTexto = document.createElement("textarea");
+cajitaTexto.setAttribute("cols","50");
+cajitaTexto.setAttribute("rows","4");
+divAux.appendChild(cajitaTexto);
 
+var botonComentario = document.createElement("button");
+botonComentario.setAttribute("onclick","crearComentario()");
+var textBoton = document.createTextNode("Dejar Comentario");
+botonComentario.appendChild(textBoton);
+divAux.appendChild(botonComentario);
 });
+
+
+function crearComentario(){
+
 }
+}
+
 
 main();
-
-
-var cajitaTexto = document.createElement("textarea");
-divAux.appendChild(cajitaTexto);
-	
-
-
-/*var impresion = document.getElementById('imprimir');
-squad.forEach(function(el){
-
-	impresion.innerHTML += "<br><b>Nombre: </b>"+el.nombre +"<br>" + "<b>Edad: </b>"+el.edad+" años<br>"+ "<b>Hobbies: </b>" +"</li>";
-
-
-	/*var listaHobbies = el.hobbies.forEach(function(e){
-		impresion.innerHTML += "<li>"+e+"</li>";
-	});
-}); 
-
-function crearTextoArea(){
-	var areaTexto = document.createElement("textarea");
-}
-
-
-/*No encontré manera de incluir la variable listaHobbies dentro de la etiqueta <ul> 
-en la linea 25 sin que aparezca como undefined, al no poder hacer eso no pude hacer
-que la lista de hobbies aparezca dentro del <div> de cada miembro del squad */
