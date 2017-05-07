@@ -47,17 +47,26 @@ cajitaTexto.setAttribute("cols","50");
 cajitaTexto.setAttribute("rows","4");
 divAux.appendChild(cajitaTexto);
 
+
 var botonComentario = document.createElement("button");
 botonComentario.setAttribute("onclick","crearComentario()");
 var textBoton = document.createTextNode("Dejar Comentario");
 botonComentario.appendChild(textBoton);
 divAux.appendChild(botonComentario);
-});
 
 
 function crearComentario(){
-
+var newComment = cajitaTexto.value;
+var comment = document.createTextNode(newComment);
+var commAux = document.createElement("div");
+divAux.appendChild(commAux);
+divAux.innerHTML(comment);
+console.log(newComment);
 }
+});
+
+
+
 }
 
 
