@@ -1,24 +1,36 @@
+var squad = [];
+var comments = [];
+
 function MiembroSquad(nombre, edad, hobbies){
 	this.nombre = nombre;
 	this.edad = edad;
 	this.hobbies = hobbies;
 }
 
-var squad = [];
+function Comentario(idMiembro,comentario,likes){
+	this.idMiembro = idMiembro;
+	this.comentario = comentario;
+	this.likes = likes;
+}
 
-var Maca = new MiembroSquad("Macarena Baltra", 27, ["Encuadernar","Bailar","Ver series"]);
-squad.push(Maca);
-var Fran = new MiembroSquad("Fran Ruiz-Tagle", 35, ["Ilustrar","Pugs","Clases de manualidades"]);
-squad.push(Fran);
-var Clau = new MiembroSquad("Claudia Rivera", 33, ["Gatos","Patinar","Comer dulces"]);
-squad.push(Clau);
-var Susana = new MiembroSquad("Susuna Arce", 28, ["Ficcion","Efusividad","Emprender"]);
-squad.push(Susana);
-var Rata = new MiembroSquad("Chinchilla Psico", 24, ["Dibujar","leer","Aprender"]);
-squad.push(Rata);
-var Nico = new MiembroSquad("Nicole Aliste", 32, ["Juegos de video","Cosas Kawai","Alicia"]);
-squad.push(Nico);
+function main(){
+	var maca = new MiembroSquad("Macarena Baltra", 27, ["Encuadernar","Bailar","Ver series"]);
+	squad.push(maca);
+	var fran = new MiembroSquad("Fran Ruiz-Tagle", 35, ["Ilustrar","Pugs","Clases de manualidades"]);
+	squad.push(fran);
+	var clau = new MiembroSquad("Claudia Rivera", 33, ["Gatos","Patinar","Comer dulces"]);
+	squad.push(clau);
+	var susana = new MiembroSquad("Susuna Arce", 28, ["Ficcion","Efusividad","Emprender"]);
+	squad.push(susana);
+	var rata = new MiembroSquad("Chinchilla Psico", 24, ["Dibujar","leer","Aprender"]);
+	squad.push(rata);
+	var nico = new MiembroSquad("Nicole Aliste", 32, ["Juegos de video","Cosas Kawai","Alicia"]);
+	squad.push(nico);
 
+llenarDiv();
+}
+
+function llenarDiv(){
 var espacioDiv = document.getElementById("espacio");
 
 squad.forEach(function(el){
@@ -31,11 +43,15 @@ listAux.innerHTML = el.hobbies.forEach(function(e){
 		divAux.innerHTML += "<li>"+e+"</li>";
 	});
 
-var cajitaTexto = document.createElement("textarea");
-
 });
+}
+
+main();
 
 
+var cajitaTexto = document.createElement("textarea");
+divAux.appendChild(cajitaTexto);
+	
 
 
 /*var impresion = document.getElementById('imprimir');
