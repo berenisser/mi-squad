@@ -19,15 +19,40 @@ squad.push(Rata);
 var Nico = new MiembroSquad("Nicole Aliste", 32, ["Juegos de video","Cosas Kawai","Alicia"]);
 squad.push(Nico);
 
-var impresion = document.getElementById('imprimir');
+var espacioDiv = document.getElementById("espacio");
+
+squad.forEach(function(el){
+var divAux = document.createElement("div");
+divAux.innerHTML += "<b>Nombre: </b>" + el.nombre+"<br>" + "<b>Edad: </b>"+el.edad+" años<br>"+ "<b>Hobbies: </b>";
+espacioDiv.appendChild(divAux);
+
+var listAux = document.createElement("li");
+listAux.innerHTML = el.hobbies.forEach(function(e){
+		divAux.innerHTML += "<li>"+e+"</li>";
+	});
+
+var cajitaTexto = document.createElement("textarea");
+
+});
+
+
+
+
+/*var impresion = document.getElementById('imprimir');
 squad.forEach(function(el){
 
-	impresion.innerHTML += "<div>"+ "<br><b>Nombre: </b>"+el.nombre +"<br>" + "<b>Edad: </b>"+el.edad+" años<br>"+ "<b>Hobbies: </b>" +"</div>";
+	impresion.innerHTML += "<br><b>Nombre: </b>"+el.nombre +"<br>" + "<b>Edad: </b>"+el.edad+" años<br>"+ "<b>Hobbies: </b>" +"</li>";
 
-	var listaHobbies = el.hobbies.forEach(function(e){
-		return (impresion.innerHTML += "<li>"+e+"</li>");
+
+	/*var listaHobbies = el.hobbies.forEach(function(e){
+		impresion.innerHTML += "<li>"+e+"</li>";
 	});
-});
+}); 
+
+function crearTextoArea(){
+	var areaTexto = document.createElement("textarea");
+}
+
 
 /*No encontré manera de incluir la variable listaHobbies dentro de la etiqueta <ul> 
 en la linea 25 sin que aparezca como undefined, al no poder hacer eso no pude hacer
