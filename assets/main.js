@@ -21,7 +21,7 @@ function main(){
 	squad.push(fran);
 	var clau = new MiembroSquad("Claudia Rivera", 33, ["Gatos","Patinar","Comer dulces"]);
 	squad.push(clau);
-	var susana = new MiembroSquad("Susuna Arce", 28, ["Ficcion","Efusividad","Emprender"]);
+	var susana = new MiembroSquad("Susana Arce", 28, ["Ficcion","Efusividad","Emprender"]);
 	squad.push(susana);
 	var rata = new MiembroSquad("Chinchilla Psico", 24, ["Dibujar","leer","Aprender"]);
 	squad.push(rata);
@@ -38,35 +38,34 @@ var divAux = document.createElement("div");
 divAux.innerHTML += "<b>Nombre: </b>" + el.nombre+"<br>" + "<b>Edad: </b>"+el.edad+" años<br>"+ "<b>Hobbies: </b>";
 espacioDiv.appendChild(divAux);
 
-var listAux = document.createElement("li");
+var listAux = document.createElement("ul");
 listAux.innerHTML = el.hobbies.forEach(function(e){
 		divAux.innerHTML += "<li>"+e+"</li>";
 	});
-var cajitaTexto = document.createElement("textarea");
-cajitaTexto.setAttribute("cols","50");
-cajitaTexto.setAttribute("rows","4");
-divAux.appendChild(cajitaTexto);
+
+	var cajitaTexto = document.createElement("textarea");
+	cajitaTexto.setAttribute("cols","50");
+	cajitaTexto.setAttribute("rows","4");
+	cajitaTexto.setAttribute("id","cajita");
+	divAux.appendChild(cajitaTexto);
 
 
-var botonComentario = document.createElement("button");
-botonComentario.setAttribute("onclick","crearComentario()");
-var textBoton = document.createTextNode("Dejar Comentario");
-botonComentario.appendChild(textBoton);
-divAux.appendChild(botonComentario);
+	var botonComentario = document.createElement("button");
+	botonComentario.innerHTML = "Dejar Comentario";
+	botonComentario.onclick = function(){
+		var comentarioPersona = document.getElementById("cajita");
+		var newComment = comentarioPersona.value;
+		var comment = document.createTextNode(newComment);
+		var commAux = document.createElement("div");
+		divAux.appendChild(commAux);
+		divAux.appendChild(comment);
+		return false;
+	};
+	divAux.appendChild(botonComentario);
 
-
-function crearComentario(){
-var newComment = cajitaTexto.value;
-var comment = document.createTextNode(newComment);
-var commAux = document.createElement("div");
-divAux.appendChild(commAux);
-divAux.innerHTML(comment);
-console.log(newComment);
-}
 });
 
-
-
+	
 }
 
 
