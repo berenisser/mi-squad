@@ -58,8 +58,19 @@ listAux.innerHTML = el.hobbies.forEach(function(e){
 		var newComment = comentarioPersona.value;
 		var comment = document.createTextNode(newComment);
 		var commAux = document.createElement("div");
+		var like = document.createElement("button");
+		like.innerHTML = "<3";
+		var counter = 0;
+		
+		like.onclick=function(){
+			counter+= 1; 
+		}
+		
+		
 		divAux.appendChild(commAux);
 		divAux.appendChild(comment);
+		divAux.appendChild(like);
+	
 		return false;
 	};
 
